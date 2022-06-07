@@ -1,6 +1,6 @@
 
-# Created by https://www.toptal.com/developers/gitignore/api/linux,intellij,intellij+iml,intellij+all,clion,clion+iml,clion+all
-# Edit at https://www.toptal.com/developers/gitignore?templates=linux,intellij,intellij+iml,intellij+all,clion,clion+iml,clion+all
+# Created by https://www.toptal.com/developers/gitignore/api/cmake,linux,intellij,intellij+iml,intellij+all,clion,clion+all,clion+iml
+# Edit at https://www.toptal.com/developers/gitignore?templates=cmake,linux,intellij,intellij+iml,intellij+all,clion,clion+all,clion+iml
 
 ### CLion ###
 # Covers JetBrains IDEs: IntelliJ, RubyMine, PhpStorm, AppCode, PyCharm, CLion, Android Studio, WebStorm and Rider
@@ -230,6 +230,23 @@ modules.xml
 .idea/misc.xml
 *.ipr
 
+### CMake ###
+CMakeLists.txt.user
+CMakeCache.txt
+CMakeFiles
+CMakeScripts
+Testing
+Makefile
+cmake_install.cmake
+install_manifest.txt
+compile_commands.json
+CTestTestfile.cmake
+_deps
+
+### CMake Patch ###
+# External projects
+*-prefix/
+
 ### Intellij ###
 # Covers JetBrains IDEs: IntelliJ, RubyMine, PhpStorm, AppCode, PyCharm, CLion, Android Studio, WebStorm and Rider
 # Reference: https://intellij-support.jetbrains.com/hc/en-us/articles/206544839
@@ -428,4 +445,4 @@ modules.xml
 # .nfs files are created when an open file is removed but is still being accessed
 .nfs*
 
-# End of https://www.toptal.com/developers/gitignore/api/linux,intellij,intellij+iml,intellij+all,clion,clion+iml,clion+all
+# End of https://www.toptal.com/developers/gitignore/api/cmake,linux,intellij,intellij+iml,intellij+all,clion,clion+all,clion+iml
