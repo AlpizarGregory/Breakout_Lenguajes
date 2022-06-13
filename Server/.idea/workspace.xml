@@ -11,7 +11,6 @@
   <component name="ChangeListManager">
     <list default="true" id="52e7395a-f0fa-4409-bc0e-72cb2d73c165" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/test.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/test.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main" beforeDir="false" afterPath="$PROJECT_DIR$/main" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.c" beforeDir="false" afterPath="$PROJECT_DIR$/main.c" afterDir="false" />
     </list>
@@ -47,7 +46,7 @@
     "cf.first.check.clang-format": "false",
     "cidr.known.project.marker": "true",
     "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "preferences.sourceCode"
+    "settings.editor.selected.configurable": "preferences.general"
   }
 }]]></component>
   <component name="RecentsManager">
@@ -72,7 +71,8 @@
       <option name="presentableId" value="Default" />
       <updated>1654746783077</updated>
       <workItem from="1654756931597" duration="1311000" />
-      <workItem from="1654925363176" duration="17882000" />
+      <workItem from="1654925363176" duration="19348000" />
+      <workItem from="1655088038076" duration="4184000" />
     </task>
     <servers />
   </component>

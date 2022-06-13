@@ -3,8 +3,8 @@
 
 void readJson() {
     FILE  *fp;
-    char buffer[1024];
-    
+    char buffer[2048];
+
     struct json_object *parsedJson;
     struct json_object *blocks;
     struct json_object *parsedBlocks;
@@ -19,36 +19,39 @@ void readJson() {
     fread(buffer, 1024, 1, fp);
     fclose(fp);
 
-    parsedJson = json_tokener_parse(buffer);
-    parsedBlocks = json_tokener_parse(json_object_get_string(parsedJson));
+    printf("%s", buffer);
 
-    json_object_object_get_ex(parsedBlocks, "blocks", &blocks);
-
-    n_friends = json_object_array_length(blocks);
-
-
-    struct json_object *number;
-    json_object_set_int((struct json_object *) &number, 5);
-
-    for (i = 0; i < n_friends; i++) {
-        block = json_object_array_get_idx(blocks,i);
-        json_object_object_get_ex(block, "color", &friend);
-        printf("%s\n", json_object_get_string(friend));
-    }
+//    parsedJson = json_tokener_parse(buffer);
+//    parsedBlocks = json_tokener_parse(json_object_get_string(parsedJson));
+//
+//    json_object_object_get_ex(parsedBlocks, "blocks", &blocks);
+//
+//    n_friends = json_object_array_length(blocks);
+//
+//
+//    struct json_object *number;
+//    json_object_set_int((struct json_object *) &number, 5);
+//
+//    for (i = 0; i < n_friends; i++) {
+//        block = json_object_array_get_idx(blocks,i);
+//        json_object_object_get_ex(block, "color", &friend);
+//        printf("%s\n", json_object_get_string(friend));
+//    }
 }
 
 void setJson() {
     struct json_object *root = json_object_from_file("data//test.json");
+    printf("%s\n", json_object_get_string(root));
     struct json_object *blocks = json_object_object_get(root, "blocks");
-    struct json_object *block = json_object_array_get_idx(blocks, 1);
-    struct json_object *points = json_object_object_get(block, "points");
-    json_object_set_int(points, 555);
-    json_object_to_file("data//test.json", root);
+    struct json_object *block = json_object_array_get_idx(blocks, 0);
+    struct json_object *points = json_object_object_get(block, "resistance");
+//    json_object_set_int(points, 35);
+//    json_object_to_file("data//test.json", root);
 }
 
 int main(int argc, char **argv) {
 //    readJson();
-//    setJson();
+    setJson();
 }
 
 
