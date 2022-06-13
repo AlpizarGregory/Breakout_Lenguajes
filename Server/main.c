@@ -15,7 +15,7 @@ void readJson() {
     size_t n_friends;
     size_t i;
 
-    fp = fopen("data//test.json", "r");
+    fp = fopen("data//blocks.json", "r");
     fread(buffer, 1024, 1, fp);
     fclose(fp);
 
@@ -40,13 +40,13 @@ void readJson() {
 }
 
 void setJson() {
-    struct json_object *root = json_object_from_file("data//test.json");
+    struct json_object *root = json_object_from_file("data//blocks.json");
     printf("%s\n", json_object_get_string(root));
     struct json_object *blocks = json_object_object_get(root, "blocks");
     struct json_object *block = json_object_array_get_idx(blocks, 0);
     struct json_object *points = json_object_object_get(block, "resistance");
 //    json_object_set_int(points, 35);
-//    json_object_to_file("data//test.json", root);
+//    json_object_to_file("data//blocks.json", root);
 }
 
 int main(int argc, char **argv) {
