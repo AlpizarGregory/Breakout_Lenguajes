@@ -446,3 +446,11 @@ _deps
 .nfs*
 
 # End of https://www.toptal.com/developers/gitignore/api/cmake,linux,intellij,intellij+iml,intellij+all,clion,clion+all,clion+iml
+Server/.idea/workspace.xml
+*.xml
+*.xml
+Server/.idea/workspace.xml
+Server/CMakeLists.txt
+Server/.idea/workspace.xml
+Server/.idea/workspace.xml
+Server/CMakeLists.txt
