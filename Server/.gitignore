@@ -446,3 +446,4 @@ _deps
 .nfs*
 
 # End of https://www.toptal.com/developers/gitignore/api/cmake,linux,intellij,intellij+iml,intellij+all,clion,clion+all,clion+iml
+/cmake-build-debug/
