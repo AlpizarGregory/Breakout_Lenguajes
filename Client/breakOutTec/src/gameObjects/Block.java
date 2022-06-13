@@ -10,10 +10,13 @@ public class Block {
     public Vector2D position;
     public String state;
 
+    public Integer value;
+
     public Color color;
 
     public Block() {
         this.state = "enabled";
+        this.value = 0;
     }
 
     public void update() {
@@ -44,6 +47,15 @@ public class Block {
 
     public void setColor(Color color) {
         this.color = color;
+    }
+
+    public Integer getValue() {
+        return value;
+    }
+
+
+    public void setValue(Integer value) {
+        this.value = value;
     }
 
     public void draw(Graphics g) {

@@ -8,21 +8,24 @@ import java.awt.image.BufferedImage;
 
 // almacena posicion e imagen
 public abstract class GameObject {
-    protected BufferedImage texture;
+    //protected BufferedImage texture;
     protected Vector2D position;
 
-    public GameObject(Vector2D position, BufferedImage texture){
+    public GameObject(Vector2D position){
         this.position = position;
-        this.texture = texture;
+        //BufferedImage texture
+        //this.texture = texture;
     }
 
-    public BufferedImage getTexture() {
-        return texture;
-    }
 
-    public void setTexture(BufferedImage texture) {
-        this.texture = texture;
-    }
+
+    //public BufferedImage getTexture() {
+        //return texture;
+    //}
+
+    //public void setTexture(BufferedImage texture) {
+        //this.texture = texture;
+    //}
 
     public Vector2D getPosition() {
         return position;

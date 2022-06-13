@@ -2,9 +2,12 @@ package main;
 
 import gameObjects.Block;
 import input.KeyBoard;
+import input.MouseInput;
 import math.Vector2D;
 import states.GameState;
 import graphics.Assets;
+import states.MenuState;
+import states.State;
 
 import javax.swing.*;
 import java.awt.*;
@@ -30,9 +33,10 @@ public class Window extends JFrame implements Runnable {
     private Double delta = Double.valueOf(0); //cambio
     private Integer averageFPS = fps;  //fps
 
-    private GameState gameState;
+    //private GameState gameState;
 
     private KeyBoard keyBoard;
+    private MouseInput mouseInput;
 
     public Window(){
 
@@ -45,6 +49,7 @@ public class Window extends JFrame implements Runnable {
 
         canvas = new Canvas();
         keyBoard = new KeyBoard();
+        mouseInput = new MouseInput();
 
         canvas.setPreferredSize(new Dimension(width,height2));
         canvas.setMaximumSize(new Dimension(width,height2));
@@ -53,6 +58,8 @@ public class Window extends JFrame implements Runnable {
 
         add(canvas);
         canvas.addKeyListener(keyBoard);
+        canvas.addMouseListener(mouseInput);
+        canvas.addMouseMotionListener(mouseInput);
     }
 
     public static void main(String[] args){
@@ -64,7 +71,8 @@ public class Window extends JFrame implements Runnable {
     private void update(){ // temodo que actualiza todo
         //x++;
         keyBoard.update();
-        gameState.update();
+        State.getCurrentSTate().update();
+        //gameState.update();
     }
 
     private void draw(){
@@ -88,8 +96,8 @@ public class Window extends JFrame implements Runnable {
         //g2.fillRect(0,640,900,80);
 
 
-
-        gameState.draw(g);
+        State.getCurrentSTate().draw(g);
+        //gameState.draw(g);
         //g.setFont(new Font( "Arial",Font.BOLD,20));
         //g.drawString(""+averageFPS, 100,100);
 
@@ -102,7 +110,8 @@ public class Window extends JFrame implements Runnable {
 
     private void init(){ // Se inicializan los recursos y todo que se llama una vez
         Assets.init();
-        gameState = new GameState();
+        State.changeState(new MenuState());
+        //gameState = new GameState();
     }
 
     @Override

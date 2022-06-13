@@ -11,17 +11,22 @@ public class Player extends GameObject {
 
     public Integer lives = 3;
     public Integer playerSize;
-    public Player (Vector2D position, BufferedImage texture){
-        super(position, texture);
+    public Player (Vector2D position){
+        super(position);
         this.playerSize = 151;
 
     }
+
+
 
     @Override
     public void update() {
 
         if (getLives()>3){
             setLives(3);
+        }
+        if (getLives()<1){
+            setLives(0);
         }
         if (position.getX()<1.0){
             position.setX(1.0);

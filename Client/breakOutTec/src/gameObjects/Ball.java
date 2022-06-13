@@ -6,9 +6,9 @@ import java.awt.*;
 
 import java.util.Random;
 
-public class Ball {
+public class Ball extends GameObject {
 
-    public Vector2D position;
+
     public Double speed;
     public Integer direction;
 
@@ -18,16 +18,18 @@ public class Ball {
 
 
     //-------------------------------------------------------------------------------------------
-    public Ball() {
+    public Ball(Vector2D position) {
+        super(position);
         this.speed = 2.0;
     }
 
     public Ball(Double speed, Vector2D position, Integer direction) {
-        super();
+        super(position);
         this.speed = speed;
-        this.position = position;
         this.direction = direction;
     }
+
+
 
 
     public void update() {
@@ -71,13 +73,7 @@ public class Ball {
     public void setDirection(Integer direction) {
         this.direction = direction;
     }
-    public Vector2D getPosition() {
-        return position;
-    }
 
-    public void setPosition(Vector2D position) {
-        this.position = position;
-    }
 
     public void move1stQ(){
         this.setPosition(new Vector2D(this.getPosition().getX()+this.getSpeed(), this.getPosition().getY()-this.getSpeed()));
