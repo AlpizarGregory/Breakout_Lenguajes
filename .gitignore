@@ -473,3 +473,4 @@ Server/CMakeLists.txt
 *.o
 *.txt
 *.log
+Server/.idea/workspace.xml
