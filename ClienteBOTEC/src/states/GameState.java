@@ -194,6 +194,9 @@ public class GameState extends State{
         //////////////////////////////////////////////
 
         info.setLevel(info.getLevel()+1);
+        socket.sentString("Nuevo Nivel");
+        String recibido = socket.receiveString();
+        ParseDatos(recibido);
     }
 
     /**
