@@ -10,6 +10,9 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
+/**
+ * CLase del estado de Juego
+ */
 public class GameState extends State{
     private Boolean over = false;
 
@@ -30,6 +33,9 @@ public class GameState extends State{
 
     private Info info;
 
+    /**
+     * Constructor, crea todo los objetos del juego
+     */
     public GameState(){
 
         player = new Player(new Vector2D(100.0,580.0));
@@ -80,9 +86,16 @@ public class GameState extends State{
         //blocksMatrix[7][9].setState("moreSpeed");
     }
 
+    /**
+     * Juego terminado
+     */
     public void gameOver(){
         over = true;
     }
+
+    /**
+     * Nuevo nivel alcanzado
+     */
     public void newLevel(){
         disabledBlocks = 0;
         blockX = -90.0;
@@ -105,6 +118,10 @@ public class GameState extends State{
 
         info.setLevel(info.getLevel()+1);
     }
+
+    /**
+     * Actualizar todos los objetos del juego
+     */
     public void update(){
         player.update();
 
@@ -218,6 +235,10 @@ public class GameState extends State{
         info.update();
     }
 
+    /**
+     * Dibujar todos los objetos del juego
+     * @param g : Graphics
+     */
     public void draw(Graphics g){
         player.draw(g);
 

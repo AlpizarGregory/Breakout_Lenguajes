@@ -3,13 +3,18 @@ package graphics;
 import javax.sound.sampled.Clip;
 import java.awt.image.BufferedImage;
 
+/**
+ * Clase que guarda los recursos de juego
+ */
 public class Assets {
 
     public static BufferedImage player, gameOver, greyBtn, blueBtn;
 
     public static Clip playerSound, blockSound;
 
-
+    /**
+     * Carga los recursos del juego
+     */
     public static void init(){
         player = Loader.imageLoader("resources/player2.png");
         gameOver = Loader.imageLoader("resources/gameover.jpg");

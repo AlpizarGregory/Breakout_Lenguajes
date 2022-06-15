@@ -7,18 +7,27 @@ import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.security.Key;
 
+/**
+ * Clase del Jugador
+ */
 public class Player extends GameObject {
 
     public Integer lives = 3;
     public Integer playerSize;
+
+    /**
+     * Constructor
+     * @param position : posicion del jugador
+     */
     public Player (Vector2D position){
         super(position);
         this.playerSize = 151;
 
     }
 
-
-
+    /**
+     * Actualizar el jugador
+     */
     @Override
     public void update() {
 
@@ -42,22 +51,42 @@ public class Player extends GameObject {
         }
     }
 
+    /**
+     * Obtener vidas del jugador
+     * @return Integer vidas del jugador
+     */
     public Integer getLives() {
         return lives;
     }
 
+    /**
+     * Asignar vidas del jugador
+     * @param lives : vidas del jugador
+     */
     public void setLives(Integer lives) {
         this.lives = lives;
     }
 
+    /**
+     * Obtener largo del jugador
+     * @return INteger largo del jugador
+     */
     public Integer getPlayerSize() {
         return playerSize;
     }
 
+    /**
+     * Asignar el largo de la raqueta
+     * @param playerSize : largo del jugador
+     */
     public void setPlayerSize(Integer playerSize) {
         this.playerSize = playerSize;
     }
 
+    /**
+     * Dibujar al jugador
+     * @param g Graphics
+     */
     @Override
     public void draw(Graphics g) {
         //g.drawImage(texture, position.getX().intValue(), position.getY().intValue(), null);

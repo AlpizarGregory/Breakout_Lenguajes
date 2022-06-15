@@ -16,6 +16,9 @@ import java.lang.Integer;
 import java.lang.Boolean;
 import java.lang.*;
 
+/**
+ * Clase main
+ */
 public class Window extends JFrame implements Runnable {
 
     public static final Integer width = 900, height = 650;
@@ -38,6 +41,9 @@ public class Window extends JFrame implements Runnable {
     private KeyBoard keyBoard;
     private MouseInput mouseInput;
 
+    /**
+     * Constructor de la ventana main
+     */
     public Window(){
 
         setTitle("Break Out Tec");
@@ -62,12 +68,20 @@ public class Window extends JFrame implements Runnable {
         canvas.addMouseMotionListener(mouseInput);
     }
 
+    /**
+     * Main
+     * @param args
+     */
     public static void main(String[] args){
         new Window().start();
 
     }
 
     //Integer x = 0;
+
+    /**
+     * Actualizar los eventos y el estado actual
+     */
     private void update(){ // temodo que actualiza todo
         //x++;
         keyBoard.update();
@@ -75,6 +89,9 @@ public class Window extends JFrame implements Runnable {
         //gameState.update();
     }
 
+    /**
+     * DIbujar el canvas de la ventana
+     */
     private void draw(){
         bs = canvas.getBufferStrategy();
         if (bs == null){
@@ -89,31 +106,30 @@ public class Window extends JFrame implements Runnable {
         //g.drawImage(Assets.player, 100, 100, null);
         g.setColor(Color.BLACK);
         g.fillRect(0,0,width,height2);
-
-
         //g2 = bs.getDrawGraphics();
         //g2.setColor(Color.LIGHT_GRAY);
         //g2.fillRect(0,640,900,80);
-
-
         State.getCurrentSTate().draw(g);
         //gameState.draw(g);
         //g.setFont(new Font( "Arial",Font.BOLD,20));
         //g.drawString(""+averageFPS, 100,100);
-
-
         //-----------------------------
-
         g.dispose();
         bs.show();
     }
 
+    /**
+     * Inicializar los recursos y el estado menu
+     */
     private void init(){ // Se inicializan los recursos y todo que se llama una vez
         Assets.init();
         State.changeState(new MenuState());
         //gameState = new GameState();
     }
 
+    /**
+     * Obtener fps
+     */
     @Override
     public void run() {
 
@@ -147,11 +163,19 @@ public class Window extends JFrame implements Runnable {
 
     }
     // iniciar y detener hilo
+
+    /**
+     * Iniciar el hilo
+     */
     private void start(){
         thread = new Thread(this);
         thread.start();
         running = true;
     }
+
+    /**
+     * Detener el hilo
+     */
     private void stop(){
         try {
             thread.join();

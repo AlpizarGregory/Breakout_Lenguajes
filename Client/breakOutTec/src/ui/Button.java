@@ -5,6 +5,9 @@ import input.MouseInput;
 import java.awt.*;
 import java.awt.image.BufferedImage;
 
+/**
+ * Clase de los botones del menu
+ */
 public class Button {
 
     private BufferedImage mouseOutImg;
@@ -15,6 +18,15 @@ public class Button {
     private Action action;
     private String text;
 
+    /**
+     * Constructor de cada boton
+     * @param mouseOutImg : imagen de fuera del boton
+     * @param mouseInImg : imagen de dentro del boton
+     * @param x : posicion x del boton
+     * @param y : posicion y del boton
+     * @param text : texto del boton
+     * @param action : accion que realiza el boton
+     */
     public Button(
         BufferedImage mouseOutImg,
         BufferedImage mouseInImg,
@@ -29,6 +41,9 @@ public class Button {
         this.action = action;
     }
 
+    /**
+     * Actualizar los eventos en los botones
+     */
     public void  update(){
         if (boundingBox.contains(MouseInput.X,MouseInput.Y)){
             mouseIn = true;
@@ -40,6 +55,11 @@ public class Button {
             action.doAction();
         }
     }
+
+    /**
+     * Dibujar los botones en el menu
+     * @param g : Graphics
+     */
     public void draw(Graphics g){
         if (mouseIn){
             g.drawImage(mouseInImg, boundingBox.x, boundingBox.y, null);
