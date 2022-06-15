@@ -1,0 +1,66 @@
+package socketclient;
+
+
+
+import java.io.DataInputStream;
+import java.io.DataOutputStream;
+import java.io.IOException;
+import java.net.Socket;
+
+public class SocketClient
+{
+
+    private Socket socket;
+
+    public SocketClient(String ip, Integer port)
+    {
+        try
+        {
+            //Se crea el socket cliente
+            socket = new Socket(ip, port);
+            System.out.println(("Conectado"));
+
+            socket.setSoLinger(true, 10);
+        }
+        catch (Exception e)
+        {
+            e.printStackTrace();
+        }
+    }
+
+
+    public void sentString(String message)
+    {
+        try
+        {
+            DataOutputStream bufferOut = new DataOutputStream(socket.getOutputStream());
+            DatoSocket aux = new DatoSocket(message);
+            aux.writeObject(bufferOut);
+            //System.out.println("Cliente Java: Enviado " + aux.toString());
+        }
+        catch (IOException e)
+        {
+            e.printStackTrace();
+        }
+    }
+
+    public String receiveString()
+    {
+        String receiveString = "";
+        try {
+        //Se obtiene un flujo de datos para recibir datos del servidor.
+        DataInputStream bufferIn = new DataInputStream(socket.getInputStream());;
+        DatoSocket dato = new DatoSocket("");
+        dato.readObject(bufferIn);
+        receiveString = dato.toString();
+
+
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        return receiveString;
+    }
+
+}
